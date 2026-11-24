@@ -18,6 +18,7 @@
 </p>
 
 <p>
+  <a href="#download">Download</a> ·
   <a href="#why-island">Why Island?</a> ·
   <a href="#feature-highlights">Features</a> ·
   <a href="#architecture">Architecture</a> ·
@@ -28,6 +29,22 @@
 </p>
 
 </div>
+
+---
+
+## Download
+
+Ready to use **Island v1.2.0** immediately on **Windows 10 / 11 (x64)** without compiling from source? Download either package directly from GitHub Releases:
+
+| Package | Direct Download | Best For |
+| :--- | :--- | :--- |
+| **Windows x64 Installer (Recommended)** | [**Island_1.2.0_x64-setup.exe**](https://github.com/ThanhDuy-Dev2006/Island/releases/latest/download/Island_1.2.0_x64-setup.exe) | Guided NSIS setup with Start Menu shortcut, clean uninstall & optional Windows startup |
+| **Windows x64 Portable (No Install)** | [**island.exe**](https://github.com/ThanhDuy-Dev2006/Island/releases/latest/download/island.exe) | Instant launch from any folder (stores preferences beside the executable or in `%APPDATA%\Island`) |
+
+- Browse release notes & SHA-256 checksums: [GitHub Releases (`v1.2.0`)](https://github.com/ThanhDuy-Dev2006/Island/releases/tag/v1.2.0)
+
+> [!NOTE]
+> Open-source builds are not Authenticode-signed. If Microsoft Defender SmartScreen prompts on first launch, click **More info → Run anyway**.
 
 ---
 

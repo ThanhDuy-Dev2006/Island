@@ -18,6 +18,7 @@
 </p>
 
 <p>
+  <a href="#t%E1%BA%A3i-v%E1%BB%81-nhanh">Tải về nhanh</a> ·
   <a href="#v%C3%AC-sao-ch%E1%BB%8Dn-island">Vì sao chọn Island?</a> ·
   <a href="#t%C3%ADnh-n%C4%83ng-n%E1%BB%95i-b%E1%BA%ADt">Tính năng</a> ·
   <a href="#ki%E1%BA%BFn-tr%C3%BAc-h%E1%BB%87-th%E1%BB%91ng">Kiến trúc</a> ·
@@ -28,6 +29,22 @@
 </p>
 
 </div>
+
+---
+
+## Tải về nhanh
+
+Bạn muốn dùng ngay **Island v1.2.0** trên **Windows 10 / 11 (x64)** mà không cần tự biên dịch mã nguồn? Chọn trực tiếp một trong hai bản phát hành chính thức dưới đây:
+
+| Gói phát hành | Liên kết tải trực tiếp | Phù hợp với |
+| :--- | :--- | :--- |
+| **Bộ cài đặt Windows x64 (Khuyên dùng)** | [**Island_1.2.0_x64-setup.exe**](https://github.com/ThanhDuy-Dev2006/Island/releases/latest/download/Island_1.2.0_x64-setup.exe) | Trình cài đặt NSIS có lối tắt Start Menu, gỡ cài đặt sạch & tùy chọn tự khởi động cùng Windows |
+| **Bản chạy ngay Portable (Không cần cài)** | [**island.exe**](https://github.com/ThanhDuy-Dev2006/Island/releases/latest/download/island.exe) | Mở và dùng tức thì ở mọi thư mục (tự lưu cấu hình ngay cạnh tệp hoặc trong `%APPDATA%\Island`) |
+
+- Xem ghi chú phát hành & mã kiểm tra SHA-256: [GitHub Releases (`v1.2.0`)](https://github.com/ThanhDuy-Dev2006/Island/releases/tag/v1.2.0)
+
+> [!NOTE]
+> Bản dựng mã nguồn mở chưa ký chứng chỉ số Authenticode. Nếu Windows SmartScreen hiện cảnh báo ở lần mở đầu tiên, hãy chọn **More info → Run anyway**.
 
 ---
 
