@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgOwl" cx="0.5" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#251a4a"/>
+      <stop offset="1" stop-color="#080514"/>
+    </radialGradient>
+    <linearGradient id="owlBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8b6eff"/>
+      <stop offset="0.6" stop-color="#5338b8"/>
+      <stop offset="1" stop-color="#2e1b7a"/>
+    </linearGradient>
+    <linearGradient id="owlGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff282"/>
+      <stop offset="1" stop-color="#ff9900"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgOwl)"/>
+  <!-- Starry Wings -->
+  <ellipse cx="92" cy="292" rx="34" ry="68" fill="#462ca6" stroke="#a68eff" stroke-width="4" transform="rotate(16 92 292)"/>
+  <ellipse cx="420" cy="292" rx="34" ry="68" fill="#462ca6" stroke="#a68eff" stroke-width="4" transform="rotate(-16 420 292)"/>
+  <!-- Owl Head & Body -->
+  <rect x="108" y="138" width="296" height="272" rx="128" fill="url(#owlBody)" stroke="#b39eff" stroke-width="5"/>
+  <!-- Golden Feather Brow Tuft -->
+  <path d="M126 176 L88 106 L198 156 Z" fill="url(#owlGold)" filter="url(#glow)"/>
+  <path d="M386 176 L424 106 L314 156 Z" fill="url(#owlGold)" filter="url(#glow)"/>
+  <!-- Crescent Moon on Forehead -->
+  <path d="M264 166 A18 18 0 1 0 264 202 A14 14 0 1 1 264 166 Z" fill="#fff085" filter="url(#glow)"/>
+  <!-- Owl Eye Discs -->
+  <circle cx="196" cy="264" r="54" fill="#1c1142" stroke="#cbbdff" stroke-width="4"/>
+  <circle cx="316" cy="264" r="54" fill="#1c1142" stroke="#cbbdff" stroke-width="4"/>
+  <!-- Glowing Golden Owl Eyes -->
+  <g filter="url(#glow)">
+    <circle cx="196" cy="264" r="32" fill="url(#owlGold)"/>
+    <circle cx="316" cy="264" r="32" fill="url(#owlGold)"/>
+  </g>
+  <circle cx="196" cy="264" r="16" fill="#12092b"/>
+  <circle cx="316" cy="264" r="16" fill="#12092b"/>
+  <circle cx="186" cy="252" r="8" fill="#ffffff"/>
+  <circle cx="306" cy="252" r="8" fill="#ffffff"/>
+  <!-- Cute Golden Beak -->
+  <polygon points="240,282 272,282 256,312" fill="url(#owlGold)" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Chest Feather Marks -->
+  <path d="M214 356 Q226 368 238 356 M244 366 Q256 378 268 366 M274 356 Q286 368 298 356" fill="none" stroke="#d5c9ff" stroke-width="4.5" stroke-linecap="round" opacity="0.8"/>
+</svg>

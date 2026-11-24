@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme-mode="dark" data-accent="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Deck</title>
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="dock.css" />
+</head>
+<body>
+  <div class="dock-stage">
+    <!-- Popover Xem trước cửa sổ -->
+    <div class="dock-popover glass-surface anim-pop" id="dockPreviewPop" hidden>
+      <div class="dp-hdr">
+        <span class="dp-title" id="dpTitle">Cửa sổ</span>
+        <div class="dp-acts">
+          <button type="button" class="dp-btn" id="btnDpMin" title="Thu nhỏ">—</button>
+          <button type="button" class="dp-btn danger" id="btnDpClose" title="Đóng cửa sổ">✕</button>
+        </div>
+      </div>
+      <div class="dp-thumb" id="dpThumb">Đang tải...</div>
+    </div>
+
+    <!-- Popover Downloads Stack -->
+    <div class="dock-downloads glass-surface anim-pop" id="dockDownloadsPop" hidden>
+      <div class="ddl-hdr">
+        <span>📥 Tải xuống gần đây</span>
+        <button type="button" class="dp-btn" id="btnDdlFolder" title="Mở thư mục Downloads">📂</button>
+      </div>
+      <div class="ddl-list" id="ddlList"></div>
+    </div>
+
+    <!-- Menu chuột phải -->
+    <div class="dock-ctx glass-surface anim-pop" id="dockCtxMenu" hidden></div>
+
+    <!-- Thanh Dock trung tâm -->
+    <nav class="dock-bar glass-surface" id="dockBar" aria-label="Thanh ứng dụng Deck">
+      <button type="button" class="dock-item" id="btnDockGrid" data-tip="Lưới ứng dụng (App Grid)">
+        <span class="dock-ico-box grid-ico">⊞</span>
+      </button>
+      <span class="dock-sep"></span>
+      <div class="dock-group" id="dockPinnedWrap"></div>
+      <div class="dock-group" id="dockRunningWrap"></div>
+      <div class="dock-group" id="dockRecentsWrap"></div>
+      <span class="dock-sep" id="dockTailSep"></span>
+      <button type="button" class="dock-item" id="btnDockDownloads" data-tip="Thư mục Tải xuống">
+        <span class="dock-ico-box">📥</span>
+      </button>
+      <button type="button" class="dock-item" id="btnDockTrash" data-tip="Thùng rác">
+        <span class="dock-ico-box" id="dockTrashIco">🗑️</span>
+        <span class="dock-badge" id="dockTrashBadge" hidden>0</span>
+      </button>
+    </nav>
+  </div>
+  <script src="dock.js"></script>
+</body>
+</html>

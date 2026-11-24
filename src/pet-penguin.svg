@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgPeng" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#10314f"/>
+      <stop offset="1" stop-color="#040c17"/>
+    </radialGradient>
+    <linearGradient id="pengBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b4566"/>
+      <stop offset="1" stop-color="#121e30"/>
+    </linearGradient>
+    <linearGradient id="hatIce" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5ce8ff"/>
+      <stop offset="1" stop-color="#2678ff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgPeng)"/>
+  <!-- Flippers -->
+  <ellipse cx="92" cy="298" rx="28" ry="62" fill="#1e334d" stroke="#63d2ff" stroke-width="3.5" transform="rotate(18 92 298)"/>
+  <ellipse cx="420" cy="298" rx="28" ry="62" fill="#1e334d" stroke="#63d2ff" stroke-width="3.5" transform="rotate(-18 420 298)"/>
+  <!-- Penguin Head -->
+  <rect x="104" y="146" width="304" height="268" rx="132" fill="url(#pengBody)" stroke="#7ce0ff" stroke-width="5"/>
+  <!-- White Face Heart Belly -->
+  <path d="M134 276 C134 214 198 206 256 238 C314 206 378 214 378 276 C378 358 328 398 256 398 C184 398 134 358 134 276 Z" fill="#f5fbff"/>
+  <!-- Ice Beanie & Pom-pom -->
+  <path d="M136 178 C154 106 358 106 376 178 Z" fill="url(#hatIce)" stroke="#b8f4ff" stroke-width="4"/>
+  <rect x="128" y="166" width="256" height="28" rx="14" fill="#e6faff"/>
+  <circle cx="256" cy="92" r="24" fill="#ffffff" filter="url(#glow)"/>
+  <!-- Glowing Ice Eyes -->
+  <g filter="url(#glow)">
+    <circle cx="196" cy="272" r="22" fill="#0d1c2e"/>
+    <circle cx="316" cy="272" r="22" fill="#0d1c2e"/>
+    <circle cx="196" cy="272" r="14" fill="#47d7ff"/>
+    <circle cx="316" cy="272" r="14" fill="#47d7ff"/>
+  </g>
+  <circle cx="196" cy="272" r="8" fill="#081321"/>
+  <circle cx="316" cy="272" r="8" fill="#081321"/>
+  <circle cx="189" cy="264" r="6" fill="#ffffff"/>
+  <circle cx="309" cy="264" r="6" fill="#ffffff"/>
+  <!-- Rosy Cheeks -->
+  <ellipse cx="154" cy="302" rx="18" ry="10" fill="#ff6b9d" opacity="0.65"/>
+  <ellipse cx="358" cy="302" rx="18" ry="10" fill="#ff6b9d" opacity="0.65"/>
+  <!-- Cute Orange Beak -->
+  <ellipse cx="256" cy="302" rx="22" ry="14" fill="#ff9d1c" stroke="#ffe082" stroke-width="3"/>
+</svg>

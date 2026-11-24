@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="darkbg" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#3d1e12"/>
+      <stop offset="1" stop-color="#0d0604"/>
+    </radialGradient>
+    <linearGradient id="foxFur" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8c3b"/>
+      <stop offset="0.6" stop-color="#e04819"/>
+      <stop offset="1" stop-color="#8c1d0b"/>
+    </linearGradient>
+    <linearGradient id="foxGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe875"/>
+      <stop offset="1" stop-color="#ff9900"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#darkbg)"/>
+  <!-- Big Pointed Kitsune Ears -->
+  <path d="M110 236 L78 72 L222 156 Z" fill="url(#foxFur)" stroke="url(#foxGold)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M124 206 L102 106 L196 162 Z" fill="#fff0d6" opacity="0.85"/>
+  <path d="M402 236 L434 72 L290 156 Z" fill="url(#foxFur)" stroke="url(#foxGold)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M388 206 L410 106 L316 162 Z" fill="#fff0d6" opacity="0.85"/>
+  <!-- Fox Head with Cheek Tufts -->
+  <path d="M98 250 C98 168 165 142 256 142 C347 142 414 168 414 250 L442 296 L392 346 C362 396 312 418 256 418 C200 418 150 396 120 346 L70 296 Z" fill="url(#foxFur)" stroke="url(#foxGold)" stroke-width="5" stroke-linejoin="round"/>
+  <!-- White Cheek Masks -->
+  <path d="M110 310 Q180 280 256 368 Q332 280 402 310 C376 382 320 416 256 416 C192 416 136 382 110 310 Z" fill="#fff3e0"/>
+  <!-- Forehead Flame Mark -->
+  <path d="M256 168 C272 192 276 214 256 230 C236 214 240 192 256 168 Z" fill="url(#foxGold)" filter="url(#glow)"/>
+  <!-- Glowing Amber Eyes -->
+  <g filter="url(#glow)">
+    <ellipse cx="194" cy="272" rx="25" ry="29" fill="url(#foxGold)"/>
+    <ellipse cx="318" cy="272" rx="25" ry="29" fill="url(#foxGold)"/>
+  </g>
+  <circle cx="194" cy="272" r="10" fill="#2b0900"/>
+  <circle cx="318" cy="272" r="10" fill="#2b0900"/>
+  <circle cx="186" cy="260" r="6" fill="#ffffff"/>
+  <circle cx="310" cy="260" r="6" fill="#ffffff"/>
+  <!-- Nose & Smile -->
+  <polygon points="244,328 268,328 256,344" fill="#2b0900"/>
+  <path d="M234 352 Q256 368 278 352" fill="none" stroke="#8c1d0b" stroke-width="5.5" stroke-linecap="round"/>
+</svg>

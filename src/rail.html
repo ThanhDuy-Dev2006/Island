@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme-mode="dark" data-accent="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Rail</title>
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="rail.css" />
+</head>
+<body>
+  <div class="rail-stage" id="railStage">
+    <div class="rail-bar" id="railBar">
+      <div class="rail-pill glass-surface" id="railLeftPill">
+        <button type="button" class="rail-btn brand" id="btnRailBrand" title="Menu Hệ thống Island">🤖 <span>Island</span></button>
+        <span class="rail-app-name" id="railAppName">Desktop</span>
+        <div class="rail-menus" id="railAppMenus"></div>
+      </div>
+
+      <div class="rail-center-gap" id="railCenterGap" aria-hidden="true"></div>
+
+      <div class="rail-pill glass-surface" id="railRightPill">
+        <button type="button" class="rail-btn" id="btnRailWifi" title="Mạng Wi-Fi">📶 <span id="railWifiTxt">Wi-Fi</span></button>
+        <span class="rail-stat" id="railBattery" title="Pin hệ thống">🔋 100%</span>
+        <button type="button" class="rail-btn icon" id="btnRailSearch" title="Tìm kiếm nhanh (Ctrl+Space)">🔍</button>
+        <button type="button" class="rail-btn icon" id="btnRailPanel" title="Bảng điều khiển nhanh">🎚️</button>
+        <span class="rail-clock tabular" id="railClock">00:00</span>
+      </div>
+    </div>
+
+    <div class="rail-drop glass-surface anim-pop" id="railDrop" hidden></div>
+  </div>
+  <script src="rail.js"></script>
+</body>
+</html>

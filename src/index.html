@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island</title>
+  <link rel="icon" type="image/svg+xml" href="robot-avatar-dark.svg" />
+  <link rel="alternate icon" href="icon.png" />
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="mn-holder" id="mnHolder">
+    <div class="mn" id="mn" data-s="both" data-pet="island" data-mood="idle" role="region" aria-label="Island">
+
+      <!-- 1. CHẾ ĐỘ THÚ CƯNG TOÀN PHẦN (155x32) -->
+      <div class="ly l-pet" id="layerPet">
+        <div class="ambient"></div>
+        <div class="pet-deco" id="petDecoFull">
+          <span class="island-crown"></span>
+          <span class="cat-ear left"></span>
+          <span class="cat-ear right"></span>
+          <span class="cat-whisker left"></span>
+          <span class="cat-whisker right"></span>
+          <span class="bot-ant"></span>
+          <span class="bot-pod left"></span>
+          <span class="bot-pod right"></span>
+          <span class="bun-ear left"></span>
+          <span class="bun-ear right"></span>
+          <span class="fox-ear left"></span>
+          <span class="fox-ear right"></span>
+          <span class="fox-mark"></span>
+          <span class="drg-horn left"></span>
+          <span class="drg-horn right"></span>
+          <span class="drg-wing left"></span>
+          <span class="drg-wing right"></span>
+          <span class="pda-ear left"></span>
+          <span class="pda-ear right"></span>
+          <span class="pda-leaf"></span>
+          <span class="shb-ear left"></span>
+          <span class="shb-ear right"></span>
+          <span class="shb-brow left"></span>
+          <span class="shb-brow right"></span>
+          <span class="axo-gill left"></span>
+          <span class="axo-gill right"></span>
+          <span class="owl-brow left"></span>
+          <span class="owl-brow right"></span>
+          <span class="owl-beak"></span>
+          <span class="png-hat"></span>
+          <span class="png-beak"></span>
+          <span class="uni-horn"></span>
+          <span class="uni-ear left"></span>
+          <span class="uni-ear right"></span>
+        </div>
+        <div class="eyes" id="mascotEyes" style="gap:15px">
+          <span class="pet-blush left"></span>
+          <i class="eye" style="width:8.6px;height:12.6px"></i>
+          <span class="pet-mouth" id="petMouthFull"></span>
+          <i class="eye" style="width:8.6px;height:12.6px"></i>
+          <span class="pet-blush right"></span>
+          <span class="pet-shades"></span>
+          <span class="pet-tear left"></span>
+          <span class="pet-tear right"></span>
+          <span class="pet-anger">💢</span>
+        </div>
+        <span class="a pet-emote" id="petEmoteFull">♪</span>
+        <span class="a pet-bubble full" id="petBubbleFull"></span>
+        <span class="a bars c" id="petMiniBars" style="right:8px;top:16px;transform:translateY(-50%) scale(0.78);opacity:0">
+          <i></i><i></i><i></i>
+        </span>
+        <div class="a pet-live-act" id="petLiveActivityBadge" style="display:none" title="Hoạt động đang chạy · Bấm để mở nhanh">
+          <span class="pla-ico" id="plaIco">🍅</span>
+          <span class="pla-txt tabular" id="plaTxt">25:00</span>
+        </div>
+      </div>
+
+      <!-- 2. CHẾ ĐỘ THU GỌN: ĐỒNG HỒ + PET + SÓNG NHẠC (176x32) -->
+      <div class="ly l-both" id="layerBoth">
+        <div class="ambient both-ambient"></div>
+        <span class="a ring c" id="bothRing" style="left:19px;top:16px;--p:85%" title="Mức pin"></span>
+
+        <div class="a mini-pet c" id="miniPetWidget" style="left:52px;top:16px" title="Thú cưng Island">
+          <span class="mp-crown"></span>
+          <span class="mp-ear left"></span>
+          <span class="mp-ear right"></span>
+          <span class="mp-ant"></span>
+          <span class="mp-pod left"></span>
+          <span class="mp-pod right"></span>
+          <span class="mp-bun left"></span>
+          <span class="mp-bun right"></span>
+          <span class="mp-fox left"></span>
+          <span class="mp-fox right"></span>
+          <span class="mp-horn left"></span>
+          <span class="mp-horn right"></span>
+          <span class="mp-wing left"></span>
+          <span class="mp-wing right"></span>
+          <span class="mp-pda left"></span>
+          <span class="mp-pda right"></span>
+          <span class="mp-leaf"></span>
+          <span class="mp-shb left"></span>
+          <span class="mp-shb right"></span>
+          <span class="mp-axo left"></span>
+          <span class="mp-axo right"></span>
+          <span class="mp-owl left"></span>
+          <span class="mp-owl right"></span>
+          <span class="mp-png-hat"></span>
+          <span class="mp-uni-horn"></span>
+          <div class="mp-face" id="miniPetFace">
+            <span class="mp-blush left"></span>
+            <i class="mp-eye"></i>
+            <span class="mp-mouth"></span>
+            <i class="mp-eye"></i>
+            <span class="mp-blush right"></span>
+            <span class="mp-shades"></span>
+            <span class="mp-tear left"></span>
+            <span class="mp-tear right"></span>
+            <span class="mp-anger">💢</span>
+          </div>
+          <span class="mp-badge" id="miniPetEmote">♪</span>
+          <span class="pet-bubble mini" id="petBubbleMini"></span>
+        </div>
+
+        <span class="a b c js-time tabular" style="left:102px;top:16px;font-size:14.5px">00:07</span>
+        <span class="a bars c" id="bothBars" style="left:154px;top:16px">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+      </div>
+
+      <!-- 3. CHẾ ĐỘ THU GỌN CỔ ĐIỂN: CHỈ ĐỒNG HỒ & SÓNG NHẠC (150x30) -->
+      <div class="ly l-idle" id="layerIdle">
+        <span class="a ring c" id="idleRing" style="left:20px;top:15px;--p:85%"></span>
+        <span class="a b c js-time tabular" style="left:75px;top:15px;font-size:14.5px">18:55</span>
+        <span class="a bars c" id="idleBars" style="left:131px;top:15px">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+      </div>
+
+      <!-- 3A. CHẾ ĐỘ VIÊN THUỐC MÔ-ĐUN (CAPSULE IDLE) -->
+      <div class="ly l-capsule" id="layerCapsule">
+        <div class="cap-shell" id="capsuleShell">
+          <div class="cap-side cap-left" id="capsuleLeft">
+            <span class="cap-ico" id="capsuleLeftIco">🕒</span>
+            <span class="cap-txt tabular" id="capsuleLeftTxt">00:19</span>
+          </div>
+          <span class="cap-sep" id="capsuleSep" aria-hidden="true"></span>
+          <div class="cap-side cap-right" id="capsuleRight">
+            <span class="cap-dot" id="capsuleRightDot" style="display:none"></span>
+            <span class="cap-txt" id="capsuleRightTxt">⛅ --°</span>
+            <span class="bars cap-bars" id="capsuleBars" style="display:none"><i></i><i></i><i></i><i></i><i></i></span>
+            <button type="button" class="cap-join" id="btnCapsuleJoin" style="display:none" title="Tham gia phòng họp ngay">Tham gia</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3B. CHẾ ĐỘ THU GỌN HIỆN LỜI BÀI HÁT TRỰC TIẾP (350x36) -->
+      <div class="ly l-mini-lyrics" id="layerMiniLyrics">
+        <div class="mini-lyrics-ambient"></div>
+        <div class="mini-lyr-art-wrap">
+          <span class="mini-lyr-art" id="miniLyrArt"></span>
+          <span class="mini-lyr-badge">♪</span>
+        </div>
+        <div class="mini-lyr-stage" id="miniLyrStage">
+          <span class="mini-lyr-line" id="miniLyrText">♪ Đang chờ lời bài hát...</span>
+        </div>
+        <span class="bars mini-lyr-bars" id="miniLyrBars">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+        <div class="mini-lyr-prog">
+          <i class="mini-lyr-prog-fill" id="miniLyrProgFill" style="width:0%"></i>
+        </div>
+      </div>
+
+      <!-- DẤU CHẤM QUYỀN RIÊNG TƯ (CAMERA / MICRO) KHI THU GỌN -->
+      <div class="privacy-dots collapsed" id="privacyDotsCollapsed" style="display:none" title=""></div>
+
+      <!-- THANH TRẠNG THÁI CHUNG KHI MỞ RỘNG (Căn phải gọn gàng, không bao giờ đè tiêu đề trái) -->
+      <div class="ly l-hdr">
+        <div class="hdr-right-bar">
+          <span class="privacy-dots hdr" id="hdrPrivacyDots" style="display:none" title=""></span>
+          <button class="hdr-weather-pill" id="hdrWeatherBadge" title="Thời tiết trực tiếp · Bấm để mở trang Thời tiết">⛅ 28°C</button>
+          <span class="ring hdr-ring-item" id="hdrRing" style="--p:85%" title="Vòng trạng thái hệ thống"></span>
+          <span class="hdr-datetime">
+            <span class="js-date dim">T2, 2 Th11</span>&nbsp;<b class="js-time tabular">00:19</b>
+          </span>
+          <div class="hdr-pet" id="hdrPetBtn" title="Bấm trái để tương tác · Chuột phải để đổi thú cưng">
+            <div class="mini-pet hdr-live" id="hdrLivePet">
+              <span class="mp-crown"></span>
+              <span class="mp-ear left"></span>
+              <span class="mp-ear right"></span>
+              <span class="mp-ant"></span>
+              <span class="mp-pod left"></span>
+              <span class="mp-pod right"></span>
+              <span class="mp-bun left"></span>
+              <span class="mp-bun right"></span>
+              <span class="mp-fox left"></span>
+              <span class="mp-fox right"></span>
+              <span class="mp-horn left"></span>
+              <span class="mp-horn right"></span>
+              <span class="mp-wing left"></span>
+              <span class="mp-wing right"></span>
+              <span class="mp-pda left"></span>
+              <span class="mp-pda right"></span>
+              <span class="mp-leaf"></span>
+              <span class="mp-shb left"></span>
+              <span class="mp-shb right"></span>
+              <span class="mp-axo left"></span>
+              <span class="mp-axo right"></span>
+              <span class="mp-owl left"></span>
+              <span class="mp-owl right"></span>
+              <span class="mp-png-hat"></span>
+              <span class="mp-uni-horn"></span>
+              <div class="mp-face" id="hdrPetFace">
+                <span class="mp-blush left"></span>
+                <i class="mp-eye"></i>
+                <span class="mp-mouth"></span>
+                <i class="mp-eye"></i>
+                <span class="mp-blush right"></span>
+                <span class="mp-shades"></span>
+                <span class="mp-tear left"></span>
+                <span class="mp-tear right"></span>
+                <span class="mp-anger">💢</span>
+              </div>
+            </div>
+            <span class="hp-heart" id="hdrPetHeart">♥</span>
+            <span class="hdr-pet-bubble" id="hdrPetBubble"></span>
+          </div>
+          <button class="hdr-btn" id="btnHdrQuickSearch" title="Tìm kiếm nhanh &amp; Clipboard (Quick Search)">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          </button>
+          <button class="hdr-btn" id="btnHdrQuickPanel" title="Bảng điều khiển nhanh (Quick Panel)">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/></svg>
+          </button>
+          <button class="hdr-btn hdr-notif-bell" id="btnHdrNotifBell" title="Hôm nay &amp; Trung tâm Thông báo">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <i class="hdr-notif-dot" id="hdrNotifDot" style="display:none"></i>
+          </button>
+          <button class="hdr-btn" id="btnPinNotch" title="Ghim cố định tai thỏ (không tự thu gọn)">
+            <svg viewBox="0 0 24 24"><path d="M16 3l5 5-7 7-4 1-3 3-2-2 3-3 1-4 7-7z"/></svg>
+          </button>
+          <button class="hdr-btn" id="btnOpenSettings" title="Mở Cài đặt chi tiết">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.77 1.05 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+          <button class="hdr-btn" id="btnCollapseNotch" title="Thu gọn tai thỏ về dạng nhỏ">
+            <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>
+          </button>
+          <span class="bars hdr-bars-item" id="hdrBars" title="Trạng thái phát nhạc">
+            <i></i><i></i><i></i><i></i><i></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- DẤU CHẤM CHUYỂN TRANG (PAGE DOTS) -->
+      <div class="ly l-dots">
+        <div class="a dots" id="pageDots">
+          <i data-page="music" title="Âm nhạc &amp; Lời bài hát"></i>
+          <i data-page="today" title="Hôm nay &amp; Trung tâm Thông báo"></i>
+          <i data-page="weather" title="Thời tiết trực tiếp &amp; Dự báo"></i>
+          <i data-page="widgets" title="Tiện ích Đôi (9 loại Widget)"></i>
+          <i data-page="pomo" title="Hẹn giờ Tập trung (Pomodoro)"></i>
+          <i data-page="water" title="Theo dõi &amp; Nhắc uống nước"></i>
+          <i data-page="shelf" title="Khay lưu tệp &amp; Lịch sử Clipboard"></i>
+          <i data-page="todo" title="Danh sách công việc"></i>
+          <i data-page="prayer" title="Giờ cầu nguyện"></i>
+          <i data-page="ai" title="Trợ lý AI Copilot"></i>
+        </div>
+      </div>
+
+      <!-- 4. TRANG 1: ÂM NHẠC (480x140) -->
+      <div class="ly l-music">
+        <div class="ambient music-ambient"></div>
+        <div class="music-aurora-wave" id="musicAuroraWave" aria-hidden="true"></div>
+        <canvas class="a music-vis-canvas" id="musicVisCanvas" width="320" height="36" aria-hidden="true"></canvas>
+        <span class="a art" id="musicArt" style="left:22px;top:16px;width:50px;height:50px"></span>
+        <span class="a vc sb text-clip smart-scroll-host" id="musicTitle" style="left:84px;top:35px;width:350px;font-size:13.5px">Chưa phát nhạc</span>
+        <span class="a vc dim text-clip smart-scroll-host" id="musicArtist" style="left:84px;top:53px;width:350px;font-size:11px">Bật nhạc trên trình duyệt, YouTube hoặc Spotify để đồng bộ</span>
+        <button class="a arw c js-prev-page" style="left:19px;top:101px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:52px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <span class="a vc tabular" id="musicElapsed" style="left:22px;top:76px;font-size:10.5px">00:00</span>
+        <div class="a prog vc" id="musicProgBar" style="left:58px;right:58px;top:76px;width:auto" title="Bấm để tua đến vị trí mong muốn">
+          <i id="musicProgFill" style="width:0%"></i>
+        </div>
+        <span class="a vc tabular" id="musicRemain" style="right:22px;top:76px;font-size:10.5px;cursor:pointer" title="Bấm để chuyển đổi Tổng thời lượng / Thời gian còn lại">00:00</span>
+
+        <button class="a icon-hit c" id="btnToggleLyrics" style="left:56px;top:101px" title="Xem lời bài hát đồng bộ">
+          <svg class="bub" viewBox="0 0 18 16">
+            <path d="M4 .8h10a3.2 3.2 0 0 1 3.2 3.2v4.6a3.2 3.2 0 0 1-3.2 3.2H8.4L4.6 15l.5-3.2H4A3.2 3.2 0 0 1 .8 8.6V4A3.2 3.2 0 0 1 4 .8z" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="1.4"/>
+            <circle cx="6.3" cy="5.4" r="1.3" fill="rgba(255,255,255,.85)"/>
+            <circle cx="11.3" cy="5.4" r="1.3" fill="rgba(255,255,255,.85)"/>
+          </svg>
+        </button>
+
+        <button class="a icon-hit c js-media-prev" style="left:192px;top:101px" title="Bài trước">
+          <svg class="ctl" viewBox="0 0 24 24"><path d="M11 6 3 12l8 6zM21 6l-8 6 8 6z"/></svg>
+        </button>
+        <button class="a icon-hit play-main-btn c js-media-toggle" style="left:240px;top:101px" title="Phát / Tạm dừng">
+          <svg class="ctl js-play-svg" viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg>
+        </button>
+        <button class="a icon-hit c js-media-next" style="left:288px;top:101px" title="Bài tiếp theo">
+          <svg class="ctl" viewBox="0 0 24 24"><path d="m13 6 8 6-8 6zM3 6l8 6-8 6z"/></svg>
+        </button>
+
+        <span class="a vc dim source-badge-pill" id="musicSourceBadge" style="right:22px;top:101px;font-size:10px">Hệ thống</span>
+      </div>
+
+      <!-- 5. TRANG 1B: LỜI BÀI HÁT ĐỒNG BỘ TÁCH ĐÔI (520x140 - TỶ LỆ VÀNG 34% / 66%) -->
+      <div class="ly l-lyrics">
+        <div class="lyrics-ambient"></div>
+        <span class="a art lyr-art-box" id="lyrArt" style="left:16px;top:16px;width:46px;height:46px"></span>
+        <span class="a vc sb text-clip smart-scroll-host" id="lyrTitle" style="left:70px;top:29px;width:102px;font-size:12.5px">Chưa phát nhạc</span>
+        <span class="a vc dim text-clip lyr-artist-badge smart-scroll-host" id="lyrArtist" style="left:70px;top:48px;width:102px;font-size:10.2px">Lời bài hát đồng bộ</span>
+
+        <span class="a vc tabular lyr-time-lbl" id="lyrElapsed" style="left:16px;top:77px;font-size:9.8px">00:00</span>
+        <div class="a prog vc" id="lyrProgBar" style="left:48px;top:77px;width:88px" title="Bấm để tua nhạc">
+          <i id="lyrProgFill" style="width:0%"></i>
+        </div>
+        <span class="a vc tabular lyr-time-lbl" id="lyrRemain" style="left:141px;top:77px;font-size:9.8px">00:00</span>
+
+        <button class="a icon-hit lyr-back-btn c" id="btnCloseLyrics" style="left:27px;top:108px" title="Trở lại trình phát nhạc">
+          <svg class="bub" viewBox="0 0 18 16">
+            <path d="M4 .8h10a3.2 3.2 0 0 1 3.2 3.2v4.6a3.2 3.2 0 0 1-3.2 3.2H8.4L4.6 15l.5-3.2H4A3.2 3.2 0 0 1 .8 8.6V4A3.2 3.2 0 0 1 4 .8z" fill="#fff"/>
+            <circle cx="6.3" cy="5.4" r="1.3" fill="#000"/>
+            <circle cx="11.3" cy="5.4" r="1.3" fill="#000"/>
+          </svg>
+        </button>
+        <button class="a icon-hit c js-media-prev" style="left:59px;top:108px" title="Bài trước">
+          <svg class="ctl" viewBox="0 0 24 24"><path d="M11 6 3 12l8 6zM21 6l-8 6 8 6z"/></svg>
+        </button>
+        <button class="a icon-hit play-main-btn c js-media-toggle" style="left:93px;top:108px" title="Phát / Tạm dừng">
+          <svg class="ctl js-play-svg" viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg>
+        </button>
+        <button class="a icon-hit c js-media-next" style="left:127px;top:108px" title="Bài tiếp theo">
+          <svg class="ctl" viewBox="0 0 24 24"><path d="m13 6 8 6-8 6zM3 6l8 6-8 6z"/></svg>
+        </button>
+        <button class="a icon-hit c" id="btnReloadLyrics" style="left:158px;top:108px" title="Tải lại lời bài hát">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+
+        <span class="a lyr-divider" style="left:180px;top:14px;width:1px;height:112px"></span>
+        <div class="a lyr">
+          <ol id="lyrList">
+            <li class="on"><span class="lyr-txt">Đang chờ lời bài hát...</span></li>
+            <li><span class="lyr-txt">Hãy bật nhạc trên YouTube hoặc Spotify</span></li>
+            <li><span class="lyr-txt">Lời nhạc sẽ tự chạy khớp từng câu</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 6. TRANG 2: HẸN GIỜ TẬP TRUNG POMODORO ISLAND 1.2.0 (480x140) -->
+      <div class="ly l-pomo" id="layerPomo">
+        <div class="ambient pomo-ambient"></div>
+        <span class="a ttl vc">Pomodoro</span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <!-- Cột Trái: Trạng thái vòng, Đồng hồ lớn, Giờ hoàn thành dự kiến & Thanh tiến độ -->
+        <div class="a pomo-island-left">
+          <div class="pomo-island-sub" id="pomoRoundBadge">Tập trung · 1 / 4</div>
+          <div class="pomo-island-timer-row">
+            <span class="pomo-island-time tabular" id="pomoTimeText">25:00</span>
+            <div class="pomo-island-step-btns">
+              <button class="pomo-step-mini" id="btnPomoMinus" title="Giảm thời gian (-1p / -5p)">−</button>
+              <button class="pomo-step-mini" id="btnPomoPlus" title="Tăng thời gian (+1p / +5p)">+</button>
+            </div>
+          </div>
+          <div class="pomo-island-until-row">
+            <b class="tabular" id="pomoEndTimeText">10:27</b>
+            <span class="pomo-until-lbl" id="pomoModeLabel">đến khi xong</span>
+          </div>
+          <div class="pomo-island-prog-track">
+            <div class="pomo-island-prog-fill" id="pomoLinearFill" style="width:0%"></div>
+          </div>
+          <span id="pomoRing" style="display:none"></span>
+        </div>
+
+        <!-- Vách ngăn dọc giữa 2 cột -->
+        <span class="a island-v-div"></span>
+
+        <!-- Cột Phải: Điều khiển Vòng này, Thanh tiến trình 4 phiên + Nghỉ dài & Thống kê -->
+        <div class="a pomo-island-right">
+          <div class="pomo-island-hdr">
+            <span class="pomo-this-round">Vòng này</span>
+            <div class="pomo-island-actions">
+              <button class="pomo-mode-chip" id="btnPomoBreak" title="Chuyển sang Nghỉ giải lao">Nghỉ 5p</button>
+              <button class="pomo-mode-chip" id="btnPomoFocus" title="Chuyển sang Tập trung" style="display:none">Tập trung</button>
+              <button class="pomo-island-pause-btn" id="btnPomoStart" title="Bắt đầu / Tạm dừng đếm ngược">
+                <svg id="pomoStartSvg" viewBox="0 0 24 24" style="display:none"><path d="M7 4.5v15l12-7.5z"/></svg>
+                <span id="pomoStartText">Bắt đầu</span>
+              </button>
+              <button class="pomo-island-reset-btn" id="btnPomoReset" title="Đặt lại đồng hồ về ban đầu">
+                <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Nhóm phiên tập trung nhanh (Focus Presets) -->
+          <div class="pomo-cat-bar" id="pomoCatBar">
+            <button type="button" class="pomo-cat-chip active" data-cat="work" title="Công việc (25p · Nghỉ 5p)">💼 Việc</button>
+            <button type="button" class="pomo-cat-chip" data-cat="study" title="Học tập (50p · Nghỉ 10p)">📚 Học</button>
+            <button type="button" class="pomo-cat-chip" data-cat="read" title="Đọc sách (30p · Nghỉ 5p)">📖 Đọc</button>
+            <button type="button" class="pomo-cat-chip" data-cat="custom" title="Tùy chỉnh từ Cài đặt">⚙️ Tùy</button>
+          </div>
+
+          <!-- Biểu đồ 4 phiên + Nghỉ dài Island 1.2.0 -->
+          <div class="pomo-island-segments-wrap" id="pomoSegmentsWrap">
+            <div class="pomo-seg-bars" id="pomoSegBars">
+              <div class="pomo-seg-item" data-seg="1"><i class="seg-fill"></i><span class="seg-orb"></span></div>
+              <span class="pomo-seg-dot" data-dot="1"></span>
+              <div class="pomo-seg-item" data-seg="2"><i class="seg-fill"></i><span class="seg-orb"></span></div>
+              <span class="pomo-seg-dot" data-dot="2"></span>
+              <div class="pomo-seg-item" data-seg="3"><i class="seg-fill"></i><span class="seg-orb"></span></div>
+              <span class="pomo-seg-dot" data-dot="3"></span>
+              <div class="pomo-seg-item" data-seg="4"><i class="seg-fill"></i><span class="seg-orb"></span></div>
+              <span class="pomo-seg-dot" data-dot="4"></span>
+              <div class="pomo-seg-item long" data-seg="long"><i class="seg-fill"></i><span class="seg-orb"></span></div>
+            </div>
+            <div class="pomo-seg-labels">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>Dài</span>
+            </div>
+          </div>
+
+          <div class="pomo-island-stats" id="pomoStatsText">0g 00p · 0 phiên hôm nay</div>
+        </div>
+      </div>
+
+      <!-- 7. TRANG 3: NHẮC UỐNG NƯỚC (480x140) -->
+      <div class="ly l-water">
+        <div class="ambient water-ambient"></div>
+        <span class="a ttl vc">Uống nước <span id="waterRefillBadge" class="island-sub-city" title="Số bình nước đã uống hôm nay">0 bình</span></span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <div class="a water-left-pane">
+          <div class="water-top-row">
+            <div class="water-val-wrap">
+              <b id="waterLitresText" style="font-size:24px">0.0</b>
+              <span class="dim sb" id="waterGoalText" style="font-size:12px">/ 1.5 L</span>
+            </div>
+            <div class="water-remind-controls">
+              <button class="water-int-pill" id="btnWaterInterval" title="Đổi chu kỳ hẹn giờ nhắc uống nước">⏱ 30p</button>
+              <button class="sw" id="btnWaterReminderToggle" title="Bật / Tắt tự động nhắc uống nước">
+                <i><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0z"/></svg></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="dim water-status-line" id="waterStatusLine">
+            Hôm nay <b style="color:#4fc0ff" id="waterPctText">0%</b> · Nhắc sau 30:00
+          </div>
+
+          <div class="water-prog-track">
+            <div class="water-prog-fill" id="waterProgBar" style="width:0%"></div>
+          </div>
+
+          <div class="water-btn-row">
+            <button class="wbtn water-drink-btn" id="btnWaterDrink" title="Ghi nhận vừa uống nước">
+              <svg viewBox="0 0 24 24" fill="#7fd0ff"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+              <span id="waterDrinkText">+250 ml</span>
+            </button>
+            <button class="wbtn water-goal-btn" id="btnWaterGoalCycle" title="Đổi mục tiêu nước trong ngày (1.5L - 3.0L)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+                <path d="M4 8h16M4 16h16"/><circle cx="9" cy="8" r="2" fill="#000"/><circle cx="15" cy="16" r="2" fill="#000"/>
+              </svg>
+              Mục tiêu
+            </button>
+            <button class="wbtn water-reset-btn" id="btnWaterReset" title="Đặt lại lượng nước hôm nay về 0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+                <path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <span class="a" style="left:248px;top:36px;width:1px;height:82px;background:rgba(255,255,255,.12);pointer-events:none"></span>
+        <div class="a chart" id="waterChart" style="pointer-events:none">
+          <span class="grid-dot" style="top:0"></span>
+          <span class="grid-dot" style="top:25px"></span>
+        </div>
+        <span class="a" style="left:262px;top:102px;width:130px;height:1px;background:rgba(80,180,255,.45);pointer-events:none"></span>
+        <span class="a" style="left:392px;top:48px;width:1px;height:54px;background:rgba(255,255,255,.18);pointer-events:none"></span>
+        <span class="a vc axl" style="left:398px;top:52px;pointer-events:none">500</span>
+        <span class="a vc axl" style="left:398px;top:77px;pointer-events:none">250</span>
+        <span class="a vc axl" style="left:398px;top:102px;pointer-events:none">0 ml</span>
+        <span class="a c axl" style="left:275px;top:113px;pointer-events:none">09h</span>
+        <span class="a c axl" style="left:325px;top:113px;pointer-events:none">12h</span>
+        <span class="a c axl" style="left:375px;top:113px;pointer-events:none">18h</span>
+      </div>
+
+      <!-- 8. TRANG 4: KHAY LƯU TỆP & LỊCH SỬ CLIPBOARD (480x140) -->
+      <div class="ly l-shelf" id="shelfLayer" data-tab="files">
+        <div class="ambient shelf-ambient"></div>
+        <canvas class="a" id="shCv" width="960" height="280" style="left:0;top:0;width:480px;height:140px;pointer-events:none" aria-hidden="true"></canvas>
+        <div class="a sh-top-actions">
+          <span class="sh-ttl-text">Khay tệp</span>
+          <div class="sh-tab-switch" id="shelfTabSwitch">
+            <button class="sh-tab-btn active" id="btnShelfTabFiles" data-tab="files" title="Khay kéo thả tệp">Tệp</button>
+            <button class="sh-tab-btn" id="btnShelfTabClip" data-tab="clipboard" title="Lịch sử văn bản đã sao chép (Ctrl+C)">Clipboard <span id="shelfClipCount" class="sh-clip-badge">0</span></button>
+          </div>
+        </div>
+        <div class="a sh-corner-tools">
+          <button class="sh-action-btn" id="btnShelfAdd" title="Chọn tệp từ máy tính">+ Thêm</button>
+          <button class="sh-action-btn sh-clear-btn" id="btnShelfClear" title="Xóa toàn bộ mục trong tab hiện tại">Xóa hết</button>
+        </div>
+
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <div class="a sh-cards-row" id="shelfCardsRow"></div>
+
+        <!-- Thanh thao tác nhanh trên Khay tệp (Gửi ĐT QR, ZIP, Nén/Đổi đuôi ảnh) -->
+        <div class="a sh-quick-bar" id="shelfQuickBar" style="display:none">
+          <button type="button" class="sh-qbtn primary" id="btnShelfSendPhone" title="Tạo mã QR tải tệp qua Wi-Fi về điện thoại">📱 Gửi ĐT</button>
+          <button type="button" class="sh-qbtn" id="btnShelfZip" title="Nén các tệp trong khay thành file ZIP ngay cạnh tệp gốc">📦 ZIP</button>
+          <button type="button" class="sh-qbtn" id="btnShelfImgHalf" title="Thu nhỏ ảnh trong khay còn 50%">🖼️ 50%</button>
+          <button type="button" class="sh-qbtn" id="btnShelfImgJpg" title="Chuyển ảnh sang JPG">JPG</button>
+          <button type="button" class="sh-qbtn" id="btnShelfImgPng" title="Chuyển ảnh sang PNG">PNG</button>
+        </div>
+
+        <div class="a sh-zone" id="shelfDropZone">
+          <span class="a zone"></span>
+          <svg class="a c sh-icon" style="left:198px;top:26px;width:28px;height:28px" viewBox="-15 -22 30 32">
+            <path d="M-10.2-8h20.4l3.2 7.8h-26.8z" fill="rgba(255,255,255,.28)"/>
+            <path class="sh-arrow" d="M-1.7-21h3.4v6.5h3.5L0-8.5l-5.2-6H-1.7z" fill="rgba(255,255,255,.5)"/>
+            <path d="M-14 1h8.8l1.6 3.2h7.2L5.2 1H14v8h-28z" fill="rgba(255,255,255,.85)"/>
+          </svg>
+          <span class="a c sh-t1" style="left:198px;top:56px;font-size:12.5px;font-weight:600">Kéo thả tệp hoặc liên kết vào đây</span>
+          <span class="a c sh-t2" style="left:198px;top:56px;font-size:12.5px;font-weight:700;color:#78d4ff">Thả ra để lưu ngay vào khay!</span>
+          <span class="a c dim sh-sub" style="left:198px;top:73px;font-size:9.5px">Hỗ trợ kéo tệp, văn bản, URL từ màn hình hoặc bấm để chọn</span>
+        </div>
+
+        <!-- VÙNG LỊCH SỬ CLIPBOARD (ISLAND 1.2.0) -->
+        <div class="a sh-clip-pane" id="shelfClipPane" style="display:none">
+          <div class="sh-clip-toolbar">
+            <input type="text" id="shelfClipSearch" class="sh-clip-search" placeholder="🔍 Tìm nhanh trong Clipboard (Ghim 📌 luôn ở đầu)..." autocomplete="off" />
+            <button type="button" class="sh-clip-pick-btn" id="btnClipColorPick" title="Hút màu bất kỳ trên màn hình (Alt+C)">🎨 Hút màu</button>
+          </div>
+          <div class="sh-clip-images" id="shelfClipImages" style="display:none"></div>
+          <div class="sh-clip-list" id="shelfClipList"></div>
+          <div class="sh-clip-empty" id="shelfClipEmpty">
+            <span style="font-size:15px">📋</span>
+            <b>Sao chép văn bản bất kỳ (Ctrl + C)</b>
+            <span class="dim">Mục đã sao chép sẽ tự động lưu tại đây; bấm để chép lại hoặc lưu thành tệp</span>
+          </div>
+        </div>
+
+        <!-- LỚP PHỦ MÃ QR CHIA SẺ LAN / MÃ QR CLIPBOARD -->
+        <div class="a sh-qr-overlay" id="shelfQrOverlay" style="display:none">
+          <div class="sh-qr-svg" id="shelfQrSvgBox"></div>
+          <div class="sh-qr-info">
+            <div class="sh-qr-title" id="shelfQrTitle">Gửi tệp qua Wi-Fi</div>
+            <div class="sh-qr-sub" id="shelfQrSub">Quét QR bằng camera điện thoại (cùng Wi-Fi)</div>
+            <div class="sh-qr-prog-wrap" id="shelfQrProgWrap" style="display:none">
+              <div class="sh-qr-prog-track"><i id="shelfQrProgFill" style="width:0%"></i></div>
+              <span class="sh-qr-prog-txt" id="shelfQrProgTxt">Đang chờ điện thoại tải...</span>
+            </div>
+            <div class="sh-qr-btns">
+              <button type="button" class="sh-qbtn" id="btnShelfQrCopy">📋 Chép link</button>
+              <button type="button" class="sh-qbtn danger" id="btnShelfQrClose">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. TRANG 5: CÔNG VIỆC CẦN LÀM (480x140) -->
+      <div class="ly l-todo">
+        <div class="ambient todo-ambient"></div>
+        <span class="a ttl vc">Việc cần làm</span>
+        <button type="button" class="a island-sub-city todo-gsync-btn" id="btnTodoGoogleSync" title="Bấm để liên kết / đồng bộ Google Tasks (chuột phải: mở Cài đặt)">☁️ Liên kết</button>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <span class="a b vc tabular" id="todoRatioText" style="left:38px;top:46px;font-size:26px">0/0</span>
+        <span class="a vc dim" style="left:38px;top:70px;font-size:10.5px">Đã xong hôm nay</span>
+        <div class="a todo-mini-prog" style="left:38px;top:83px;width:128px">
+          <i id="todoProgFill" style="width:0%"></i>
+        </div>
+
+        <div class="a todo-btn-row">
+          <button class="pill todo-btn" id="btnTodoShowAdd">
+            <svg viewBox="0 0 24 24" style="fill:#fff;stroke:none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v4h4v2h-4v4h-2v-4H7v-2h4V7z"/></svg>
+            Thêm việc
+          </button>
+          <button class="pill todo-btn" id="btnTodoClearDone">
+            <svg viewBox="0 0 24 24"><path d="M4 20h7M14 5l5 5-9 9H5v-5z"/></svg>
+            Dọn dẹp
+          </button>
+        </div>
+
+        <div class="a todo-add-box" id="todoAddBox" style="display:none">
+          <input type="text" id="todoInput" placeholder="VD: 10m uống thuốc · 14:30 Họp (Enter)" />
+          <div class="todo-parse-hint" id="todoParseHint" style="display:none"></div>
+          <div style="display:flex;gap:4px">
+            <button id="btnTodoSave" style="flex:1">Lưu</button>
+            <button id="btnTodoCancel" style="flex:1;background:rgba(255,255,255,.15);color:#fff">Hủy</button>
+          </div>
+        </div>
+
+        <div class="a todo-list-scroll" id="todoListContainer"></div>
+      </div>
+
+      <!-- 9B. TRANG HÔM NAY & TRUNG TÂM THÔNG BÁO (480x140) -->
+      <div class="ly l-today" id="layerToday">
+        <div class="ambient today-ambient"></div>
+        <span class="a ttl vc">Hôm nay</span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <div class="a today-grid">
+          <!-- Cột Trái: Lịch tuần này & Việc hôm nay -->
+          <div class="today-left-card">
+            <div class="today-sec-hdr">
+              <span class="today-sec-title">TUẦN NÀY</span>
+              <span class="today-task-count" id="todayTaskSummary">0 việc hôm nay</span>
+            </div>
+            <div class="today-week-strip" id="todayWeekStrip"></div>
+            <div class="today-agenda-list" id="todayAgendaList"></div>
+            <div class="today-mini-tasks" id="todayMiniTasks"></div>
+          </div>
+
+          <!-- Cột Phải: Trung tâm Thông báo -->
+          <div class="today-right-card">
+            <div class="today-sec-hdr">
+              <span class="today-sec-title">🔔 THÔNG BÁO <span id="todayNotifBadge" class="today-notif-badge">0</span></span>
+              <button class="today-clear-btn" id="btnTodayClearNotifs" title="Xóa toàn bộ thông báo">Xóa hết</button>
+            </div>
+            <div class="today-notif-list" id="todayNotifList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9C. TRANG TIỆN ÍCH ĐÔI - WIDGETS PAGE (480x140) -->
+      <div class="ly l-widgets" id="layerWidgets">
+        <div class="ambient widgets-ambient"></div>
+        <span class="a ttl vc">Widgets</span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <div class="a widgets-dual-wrap">
+          <div class="island-widget-card" id="widgetCardLeft" data-slot="left"></div>
+          <div class="island-widget-card" id="widgetCardRight" data-slot="right"></div>
+        </div>
+      </div>
+
+      <!-- 9C-2. TRANG THỜI TIẾT TRỰC TIẾP & ĐA BIỂU ĐỒ + 12 THEME THỜI TIẾT (480x140) -->
+      <div class="ly l-weather" id="layerWeather" data-wth-kind="sunny" data-wth-theme="auto">
+        <div class="ambient weather-ambient"></div>
+        <div class="wth-sky-fx" id="wthSkyFx" aria-hidden="true">
+          <span class="fx-orb fx-1"></span>
+          <span class="fx-orb fx-2"></span>
+          <span class="fx-orb fx-3"></span>
+          <span class="fx-p p1"></span><span class="fx-p p2"></span><span class="fx-p p3"></span>
+          <span class="fx-p p4"></span><span class="fx-p p5"></span><span class="fx-p p6"></span>
+          <span class="fx-p p7"></span><span class="fx-p p8"></span><span class="fx-p p9"></span>
+        </div>
+        <span class="a ttl vc">Thời tiết <span id="weatherCityBadge" class="island-sub-city" title="Đang lấy địa chỉ từ GPS của máy • Bấm để định vị lại ngay">📍 Định vị GPS</span></span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <!-- Cột Trái: Nhiệt độ hiện tại, Kiểu thời tiết & Chỉ số chi tiết -->
+        <div class="a wth-island-left">
+          <div class="wth-now-top">
+            <span class="wth-now-ico" id="wthNowIcon">⛅</span>
+            <div class="wth-now-main">
+              <div class="wth-now-temp tabular" id="wthNowTemp">28°C</div>
+              <div class="wth-now-desc" id="wthNowDesc">Có mây rải rác</div>
+            </div>
+          </div>
+          <div class="wth-now-hl" id="wthNowHighLow">Cao: 31° · Thấp: 24°</div>
+          <div class="wth-metrics-row">
+            <span class="wth-metric-pill" title="Nhiệt độ cảm nhận">🌡️ <b id="wthNowFeel">30°</b></span>
+            <span class="wth-metric-pill" title="Độ ẩm không khí">💧 <b id="wthNowHum">72%</b></span>
+            <span class="wth-metric-pill" title="Tốc độ gió">💨 <b id="wthNowWind">11km/h</b></span>
+          </div>
+        </div>
+
+        <!-- Vách ngăn dọc -->
+        <span class="a island-v-div"></span>
+
+        <!-- Cột Phải: 3 Chế độ Biểu đồ Thời tiết (Biểu đồ đường cong nhiệt, Lượng mưa & Mặt trời, Dải nhiệt 5 ngày) -->
+        <div class="a wth-island-right">
+          <div class="wth-fc-hdr">
+            <div class="wth-fc-tabs">
+              <button class="wth-fc-tab active" id="btnWthTabHourly" data-mode="hourly" title="Biểu đồ đường cong nhiệt độ theo giờ">📈 Nhiệt độ</button>
+              <button class="wth-fc-tab" id="btnWthTabRain" data-mode="rain" title="Biểu đồ khả năng mưa, tia UV & quỹ đạo mặt trời">🌧️ Mưa &amp; UV</button>
+              <button class="wth-fc-tab" id="btnWthTabDaily" data-mode="daily" title="Biểu đồ dải nhiệt độ 5 ngày tới">📅 5 ngày</button>
+            </div>
+            <div class="wth-hdr-tools">
+              <button class="wth-theme-pill" id="btnWthThemeCycle" title="Đổi Theme Thời tiết (12 chủ đề bầu trời & biểu đồ)">🎨 Tự động</button>
+              <button class="wth-refresh-btn" id="btnWthRefresh" title="Cập nhật thời tiết mới nhất">↻</button>
+            </div>
+          </div>
+          <div class="wth-chart-stage" id="wthForecastList"></div>
+        </div>
+      </div>
+
+      <!-- 9D. TRANG GIỜ CẦU NGUYỆN & BIỂU ĐỒ ĐƯỜNG CONG MẶT TRỜI ISLAND 1.2.0 (480x140) -->
+      <div class="ly l-prayer" id="layerPrayer">
+        <div class="ambient prayer-ambient"></div>
+        <span class="a ttl vc">Prayer <span id="prayerCityBadge" class="island-sub-city" title="Bấm để đổi thành phố">Hà Nội</span></span>
+        <button class="a arw c js-prev-page" style="left:19px;top:72px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:461px;top:72px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <!-- Cột Trái: Mốc tiếp theo Island 1.2.0 -->
+        <div class="a prayer-island-left">
+          <div class="prayer-island-lbl">Tiếp theo</div>
+          <div class="prayer-island-name" id="prayerNextName">Maghrib</div>
+          <div class="prayer-island-time-row">
+            <b class="tabular" id="prayerNextTime">17:48</b>
+            <span class="prayer-island-in" id="prayerNextCountdown">còn 1g 08p</span>
+          </div>
+          <div class="prayer-island-prog-track">
+            <div class="prayer-island-prog-fill" id="prayerProgFill" style="width:65%"></div>
+          </div>
+        </div>
+
+        <!-- Vách ngăn dọc -->
+        <span class="a island-v-div"></span>
+
+        <!-- Cột Phải: Biểu đồ đường cong quỹ đạo mặt trời SVG + 5 mốc giờ -->
+        <div class="a prayer-island-right">
+          <button class="prayer-pause-mini" id="btnPrayerPauseMedia" title="Tự động tạm dừng nhạc khi đến giờ cầu nguyện">⏸ Nhạc</button>
+          <div class="prayer-arc-wrap" id="prayerArcWrap"></div>
+          <div class="prayer-times-row" id="prayerTimesRow"></div>
+        </div>
+      </div>
+
+      <!-- TRANG 6: TRỢ LÝ AI COPILOT (520x220) -->
+      <div class="ly l-ai" id="layerAi">
+        <div class="ambient ai-ambient"></div>
+        <span class="a ttl vc">Island AI</span>
+        <button class="a arw c js-prev-page" style="left:10px;top:110px" title="Trang trước">
+          <svg viewBox="0 0 10 10"><path d="M6.5 1.5 3 5l3.5 3.5"/></svg>
+        </button>
+        <button class="a arw c js-next-page" style="left:492px;top:110px" title="Trang tiếp theo">
+          <svg viewBox="0 0 10 10"><path d="M3.5 1.5 7 5l-3.5 3.5"/></svg>
+        </button>
+
+        <!-- HÀNG ĐIỀU KHIỂN & CHỌN MODEL + MỨC ĐỘ TƯ DUY NHANH (TOP: 36px) -->
+        <div class="a ai-sub-row">
+          <div class="ai-model-picker-wrap">
+            <select id="aiQuickModelSelect" class="ai-model-select" title="Chọn mô hình AI">
+              <option value="ag/gemini-3.8-flash">⚡ Gemini 3.8 Flash</option>
+              <option value="ag/claude-sonnet-4-6">🧠 Claude Sonnet 4.6</option>
+              <option value="ag/claude-opus-4-6-thinking">👑 Claude Opus 4.6</option>
+              <option value="ds/deepseek-v4-pro">🚀 DeepSeek V4 Pro</option>
+              <option value="ds/deepseek-v4.1-flash">👁️ DeepSeek V4.1 Flash</option>
+              <option value="ag/gpt-oss-120b-medium">🤖 GPT-OSS 120B</option>
+              <option value="oc/muse-spark-1.3-contributor-free">✨ Muse Spark 1.3</option>
+            </select>
+            <button type="button" id="aiQuickThinkingBtn" class="ai-thinking-pill" data-level="high" title="Mức độ tư duy AI (Bấm để đổi: Nhanh / Thấp / Vừa / Sâu)">🧠 Sâu</button>
+          </div>
+
+          <div class="ai-quick-pills">
+            <button class="ai-pill" id="aiBtnTranslate" title="Dịch văn bản vừa sao chép sang tiếng Việt">
+              <svg viewBox="0 0 24 24" class="ai-btn-svg"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/></svg>
+              <span>Dịch</span>
+            </button>
+            <button class="ai-pill" id="aiBtnSummarize" title="Tóm tắt văn bản vừa sao chép">
+              <svg viewBox="0 0 24 24" class="ai-btn-svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+              <span>Tóm tắt</span>
+            </button>
+            <button class="ai-pill icon-only" id="aiBtnCapture" title="Chụp nhanh cửa sổ đang mở gửi vào AI (Alt+S)">📸</button>
+            <button class="ai-pill icon-only ai-toggle-expand" id="aiBtnToggleExpand" title="Mở rộng khung AI tối đa / Thu gọn">
+              <svg viewBox="0 0 24 24" class="ai-btn-svg"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </button>
+            <button class="ai-pill icon-only ai-pill-danger" id="aiBtnClear" title="Xóa lịch sử chat">
+              <svg viewBox="0 0 24 24" class="ai-btn-svg"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- KHUNG CHAT CUỘN (TỰ ĐỘNG GIÃN THEO CHIỀU CAO KÉO) -->
+        <div class="a ai-chat-body" id="aiChatBody">
+          <div class="ai-msg bot" id="aiWelcomeMsg">
+            Xin chào! Hãy đặt câu hỏi, tính nhanh (<code>/calc</code>) hoặc bấm <strong>Dịch</strong> / <strong>Tóm tắt</strong> nội dung vừa sao chép.
+          </div>
+        </div>
+
+        <!-- THANH XEM TRƯỚC TỆP/ẢNH ĐÍNH KÈM -->
+        <div class="a ai-attachment-strip" id="aiAttachmentStrip"></div>
+
+        <!-- THANH NHẬP LIỆU (BOTTOM: 20px - TRÊN DẤU CHẤM TRANG) -->
+        <div class="a ai-input-bar">
+          <button class="ai-input-btn" id="aiBtnAttach" title="Đính kèm ảnh hoặc tệp văn bản/mã nguồn (Ctrl+V hoặc kéo thả)">
+            <svg viewBox="0 0 24 24" class="ai-btn-svg"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </button>
+          <input type="file" id="aiFileInput" multiple accept="image/*,.txt,.json,.csv,.py,.js,.ts,.html,.css,.md,.log,.pdf,.rs,.cpp,.c,.java" style="display:none" />
+          <input type="text" id="aiInputPrompt" placeholder="Hỏi Island AI, dán ảnh (Ctrl+V) hoặc kéo thả tệp... (Enter)" autocomplete="off" />
+          <button class="ai-send-btn" id="aiBtnSend" title="Gửi câu hỏi (Enter)">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+
+        <!-- THANH KÉO ĐỔI KÍCH THƯỚC TÙY Ý Ở ĐÁY TAI THỎ (DRAG TO RESIZE) -->
+        <div class="ai-resize-grip" id="aiResizeGrip" title="Kéo để chỉnh chiều cao • Bấm đúp để về mặc định (520×220)">
+          <div class="ai-resize-bar"></div>
+          <div class="ai-resize-corner" id="aiResizeCorner" title="Kéo góc để chỉnh đồng thời chiều ngang và dọc">
+            <svg viewBox="0 0 10 10"><path d="M8 2 L2 8 M9 5 L5 9 M9 8 L8 9" stroke="rgba(255,255,255,0.7)" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. TRANG CÀI ĐẶT ISLAND (420x236) -->
+      <div class="ly l-settings">
+        <span class="a ttl vc">Cài đặt <span style="color:#19b8ff">Island</span></span>
+        <div style="position:absolute;right:16px;top:10px;display:flex;gap:6px">
+          <button class="a pill" id="btnOpenFullSettings" style="position:static;height:22px;padding:0 9px;font-size:11px;background:rgba(10,132,255,0.25);color:#5fc0ff" title="Mở bảng cài đặt đầy đủ của Island">Cửa sổ chi tiết ↗</button>
+          <button class="a pill" id="btnCloseSettings" style="position:static;width:52px;height:22px;font-size:11px">Xong</button>
+        </div>
+
+        <div class="a settings-grid">
+          <div class="set-row">
+            <span>Kiểu Dynamic Island</span>
+            <div class="seg-group" id="segNotchStyle">
+              <button data-val="classic" class="active" title="Dính sát mép trên màn hình với tai lõm đen tuyền như cũ">📌 Dạng cũ (Dính mép)</button>
+              <button data-val="floating" title="Viên thuốc tách rời mép trên">💊 Dạng mới (Nổi)</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Màu Thời tiết</span>
+            <div class="seg-group" id="segWeatherTheme">
+              <button data-val="auto" class="active" title="Tự động đổi màu trang Thời tiết theo thời tiết hiện tại">🔄 Tự động</button>
+              <button data-val="sunny_gold" title="Nắng Vàng Rực Rỡ">☀️ Nắng</button>
+              <button data-val="rain_neon" title="Mưa Đêm Sài Gòn">🌧️ Mưa</button>
+              <button data-val="aurora_sky" title="Cực Quang Bắc Cực">✨ Cực quang</button>
+              <button data-val="obsidian_minimal" title="Đen Tuyền Tối Giản">🖤 Đen</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Cách mở tai thỏ</span>
+            <div class="seg-group" id="segOpenMode">
+              <button data-val="hover" class="active">Rê chuột</button>
+              <button data-val="click">Bấm chuột</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Khi thu gọn</span>
+            <div class="seg-group" id="segRestStyle">
+              <button data-val="both">🐾 Đồng hồ + Pet</button>
+              <button data-val="pet" class="active">✨ Chỉ Pet</button>
+              <button data-val="idle">⏱️ Chỉ Đồng hồ</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Thú cưng nhanh</span>
+            <div class="seg-group" id="segPetType">
+              <button data-val="aura" class="active" title="Dạng Pet Mới: 2 mắt trắng phát sáng trên nền xanh tím">✨ Mắt Island</button>
+              <button data-val="island" title="Tinh Linh Island vương miện vàng">👑 Island</button>
+              <button data-val="bot">🤖 Robot</button>
+              <button data-val="cat">🐱 Mèo</button>
+              <button data-val="fox">🦊 Cáo</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Hào quang Pet</span>
+            <div class="seg-group" id="segPetGlow">
+              <button data-val="auto">🔄 Theo loài</button>
+              <button data-val="island" class="active">Xanh Tím</button>
+              <button data-val="cyber">Xanh Băng</button>
+              <button data-val="off">Tắt</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Cỡ mắt &amp; Mặt Pet</span>
+            <div class="seg-group" id="segPetEyeSize">
+              <button data-val="small">Nhỏ</button>
+              <button data-val="normal" class="active">Chuẩn</button>
+              <button data-val="large">Lớn</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Kích thước tai thỏ</span>
+            <div class="seg-group" id="segScale">
+              <button data-val="auto">Tự động</button>
+              <button data-val="1">100%</button>
+              <button data-val="1.15" class="active">115%</button>
+              <button data-val="1.3">130%</button>
+              <button data-val="1.5">150%</button>
+            </div>
+          </div>
+          <div class="set-row">
+            <span>Khởi động cùng Windows</span>
+            <button class="toggle-pill" id="btnToggleAutostart">TẮT</button>
+          </div>
+          <div class="set-row">
+            <span>Âm thanh &amp; Thông báo nhanh</span>
+            <button class="toggle-pill on" id="btnToggleSounds">BẬT</button>
+          </div>
+          <div class="set-row" style="border-bottom:none;padding-top:4px">
+            <span class="dim" style="font-size:10.5px">Island 1.2.0 · Bảng điều khiển nhanh</span>
+            <button class="quit-btn" id="btnQuitIsland">Thoát Island</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. THÔNG BÁO NHANH: ÂM LƯỢNG / CAPS LOCK / HẸN GIỜ / UỐNG NƯỚC (310x60) -->
+      <div class="ly l-bt">
+        <span class="a pk-ring">
+          <svg viewBox="0 0 30 30">
+            <circle cx="15" cy="15" r="11" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="5"/>
+            <circle class="arc" id="hudRingArc" cx="15" cy="15" r="11" fill="none" stroke="#5ec2ff" stroke-width="5" stroke-linecap="round" stroke-dasharray="69.1" stroke-dashoffset="20.7"/>
+          </svg>
+        </span>
+        <span class="a c" id="hudIconText" style="left:35px;top:30px;font-size:12px">🔊</span>
+        <span class="a vc sb" id="hudTitle" style="left:64px;top:22px;font-size:13.5px">Âm lượng hệ thống</span>
+        <span class="a vc dim" id="hudSub" style="left:64px;top:40px;font-size:11px">Mức âm lượng · 75%</span>
+        <span class="a vc b" id="hudRightVal" style="right:20px;top:30px;font-size:15px;color:#5ec2ff">75%</span>
+      </div>
+
+      <!-- 12. THÔNG BÁO NHANH: SẠC PIN (310x60) -->
+      <div class="ly l-charge">
+        <span class="a pk-ring">
+          <svg viewBox="0 0 30 30">
+            <circle cx="15" cy="15" r="11" fill="none" stroke="rgba(51,224,122,.28)" stroke-width="5"/>
+            <circle class="arc" cx="15" cy="15" r="11" fill="none" stroke="#33e07a" stroke-width="5" stroke-linecap="round" stroke-dasharray="69.1" stroke-dashoffset="20.7"/>
+          </svg>
+        </span>
+        <svg class="a c" style="left:35px;top:30px;width:11px;height:13px" viewBox="0 0 10 14"><path d="M6 0 0 8h4l-1 6 6-8H5z" fill="#fff"/></svg>
+        <span class="a vc sb" id="chargeTitle" style="left:64px;top:22px;font-size:14.5px">Đang sạc pin</span>
+        <span class="a vc dim" id="chargeSub" style="left:64px;top:40px;font-size:11.5px">Đã kết nối bộ sạc</span>
+        <span class="a vc b" id="chargePct" style="right:22px;top:30px;font-size:22px;color:#33e07a">100%</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

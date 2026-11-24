@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="darkbg" cx="0.5" cy="0.38" r="0.8">
+      <stop offset="0" stop-color="#1b245e"/>
+      <stop offset="1" stop-color="#05071c"/>
+    </radialGradient>
+    <radialGradient id="bodyGrad" cx="0.45" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#4e6bff"/>
+      <stop offset="0.55" stop-color="#2a358c"/>
+      <stop offset="1" stop-color="#111640"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ef2ff"/>
+      <stop offset="1" stop-color="#b86bff"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#7ce8ff"/>
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff07c"/>
+      <stop offset="1" stop-color="#ff9f43"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#darkbg)"/>
+  <!-- Aura -->
+  <circle cx="256" cy="285" r="165" fill="#4b6bff" opacity="0.18" filter="url(#glow)"/>
+  <!-- Star Crown -->
+  <g filter="url(#glow)">
+    <path d="M256 64 L270 100 L308 104 L279 128 L288 164 L256 144 L224 164 L233 128 L204 104 L242 100 Z" fill="url(#starGrad)"/>
+  </g>
+  <!-- Spirit Body -->
+  <path d="M116 286 C116 188 175 138 256 138 C337 138 396 188 396 286 C396 368 345 418 256 418 C167 418 116 368 116 286 Z" fill="url(#bodyGrad)" stroke="url(#rim)" stroke-width="5"/>
+  <!-- Face Visor -->
+  <rect x="148" y="210" width="216" height="148" rx="74" fill="#090d2a" opacity="0.88"/>
+  <!-- Glowing Eyes -->
+  <g filter="url(#glow)">
+    <ellipse cx="206" cy="274" rx="24" ry="32" fill="url(#eyeGrad)"/>
+    <ellipse cx="306" cy="274" rx="24" ry="32" fill="url(#eyeGrad)"/>
+  </g>
+  <circle cx="198" cy="260" r="8" fill="#ffffff"/>
+  <circle cx="298" cy="260" r="8" fill="#ffffff"/>
+  <!-- Blush -->
+  <ellipse cx="168" cy="306" rx="14" ry="8" fill="#ff7eb6" opacity="0.75"/>
+  <ellipse cx="344" cy="306" rx="14" ry="8" fill="#ff7eb6" opacity="0.75"/>
+  <!-- Happy Smile -->
+  <path d="M238 314 Q256 330 274 314" fill="none" stroke="#7ef2ff" stroke-width="6" stroke-linecap="round"/>
+</svg>

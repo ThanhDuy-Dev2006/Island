@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="darkbg" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#0d3842"/>
+      <stop offset="1" stop-color="#030d12"/>
+    </radialGradient>
+    <linearGradient id="drgBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d4b8"/>
+      <stop offset="0.55" stop-color="#0d7a8a"/>
+      <stop offset="1" stop-color="#063647"/>
+    </linearGradient>
+    <linearGradient id="hornGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff085"/>
+      <stop offset="1" stop-color="#ff9d2e"/>
+    </linearGradient>
+    <linearGradient id="drgEye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9effeb"/>
+      <stop offset="1" stop-color="#00e5ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#darkbg)"/>
+  <!-- Mini Wings -->
+  <path d="M104 260 L34 198 L54 276 L28 312 L106 324 Z" fill="#17a598" stroke="url(#hornGold)" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M408 260 L478 198 L458 276 L484 312 L406 324 Z" fill="#17a598" stroke="url(#hornGold)" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Golden Dragon Horns -->
+  <g filter="url(#glow)">
+    <path d="M186 168 C154 118 148 80 176 62 C182 100 202 128 220 158 Z" fill="url(#hornGold)"/>
+    <path d="M326 168 C358 118 364 80 336 62 C330 100 310 128 292 158 Z" fill="url(#hornGold)"/>
+  </g>
+  <!-- Dragon Head -->
+  <rect x="102" y="154" width="308" height="254" rx="112" fill="url(#drgBody)" stroke="#5efce8" stroke-width="5"/>
+  <!-- Forehead Gem -->
+  <polygon points="256,178 272,202 256,226 240,202" fill="url(#hornGold)" filter="url(#glow)"/>
+  <!-- Face Dark Screen -->
+  <rect x="138" y="220" width="236" height="142" rx="68" fill="#041c24" opacity="0.88"/>
+  <!-- Glowing Dragon Eyes -->
+  <g filter="url(#glow)">
+    <ellipse cx="198" cy="280" rx="26" ry="30" fill="url(#drgEye)"/>
+    <ellipse cx="314" cy="280" rx="26" ry="30" fill="url(#drgEye)"/>
+  </g>
+  <ellipse cx="198" cy="280" rx="6" ry="18" fill="#032229"/>
+  <ellipse cx="314" cy="280" rx="6" ry="18" fill="#032229"/>
+  <circle cx="190" cy="266" r="7" fill="#ffffff"/>
+  <circle cx="306" cy="266" r="7" fill="#ffffff"/>
+  <!-- Cute Fangs & Smile -->
+  <path d="M230 326 Q256 344 282 326" fill="none" stroke="#5efce8" stroke-width="5.5" stroke-linecap="round"/>
+  <polygon points="234,328 242,328 238,338" fill="#ffffff"/>
+  <polygon points="270,328 278,328 274,338" fill="#ffffff"/>
+</svg>

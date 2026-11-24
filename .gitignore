@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Root runtime dumps & local binaries
+Island*.exe
+Island*.zip
+settings.txt
+todo.txt
+water.txt
+shelf.txt
+clipboard.txt
+ai_history.txt
+focus.txt
+notifications.txt
+weather.txt
+dock_pins.txt
+cc_layout.txt
+desktop_widgets.txt
+quick_actions.txt
+google_tasks.txt
+
+# Local workspace governance & agent tracking (kept locally only)
+.agent/
+AGENTS.md
+PROJECT.md
+TASKS.md
+STATUS.md
+HANDOFF.md
+
+# Local environment & OAuth credential files
+.env
+.env.local
+client_secret*.json

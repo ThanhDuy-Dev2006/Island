@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="52%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="auroraGlow" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#19b8ff"/>
+      <stop offset="52%" stop-color="#2d5bff"/>
+      <stop offset="100%" stop-color="#7b4bff"/>
+    </linearGradient>
+    <linearGradient id="fadeMaskGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="bottomFade">
+      <rect width="512" height="512" fill="url(#fadeMaskGrad)"/>
+    </mask>
+    <filter id="eyeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur1"/>
+      <feGaussianBlur stdDeviation="24" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bgGrad)"/>
+  <rect width="512" height="512" rx="120" fill="url(#auroraGlow)" mask="url(#bottomFade)"/>
+  <g filter="url(#eyeGlow)">
+    <ellipse cx="198" cy="262" rx="34" ry="52" fill="#ffffff"/>
+    <ellipse cx="314" cy="262" rx="34" ry="52" fill="#ffffff"/>
+  </g>
+</svg>

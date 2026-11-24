@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the island and settings windows",
+  "windows": ["main", "notch_*", "settings", "quick_panel", "quick_search", "overlay_full", "dock", "rail", "desktop_widgets", "scene_strip"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-close",
+    "core:window:allow-minimize",
+    "core:window:allow-hide",
+    "core:window:allow-show",
+    "core:window:allow-set-focus",
+    "opener:default"
+  ]
+}

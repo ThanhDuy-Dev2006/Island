@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme-mode="dark" data-accent="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Overlay</title>
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="overlay.css" />
+</head>
+<body>
+  <div class="ov-backdrop" id="ovBackdrop">
+    <!-- 1. QUICK PANEL (CONTROL CENTER) -->
+    <section class="ov-panel glass-surface anim-pop" id="viewQuickPanel" hidden aria-label="Bảng điều khiển nhanh">
+      <header class="qp-hdr">
+        <div class="qp-hdr-left">
+          <span class="qp-brand">Island</span>
+          <span class="qp-clock tabular" id="qpClock">00:00</span>
+        </div>
+        <div class="qp-hdr-acts">
+          <button type="button" class="ov-icon-btn" id="btnQpEdit" title="Tùy chỉnh các ô điều khiển">✏️</button>
+          <button type="button" class="ov-icon-btn" id="btnQpSettings" title="Mở Cài đặt">⚙️</button>
+          <button type="button" class="ov-icon-btn" id="btnQpClose" title="Đóng (Esc)">✕</button>
+        </div>
+      </header>
+
+      <!-- Thanh chỉnh Sáng & Âm lượng -->
+      <div class="qp-sliders">
+        <div class="qp-slider-card">
+          <div class="qp-sl-top">
+            <span>🔆 Độ sáng</span>
+            <span class="qp-sl-badge" id="qpBrightMode">WMI</span>
+            <b class="tabular" id="qpBrightVal">100%</b>
+          </div>
+          <input type="range" class="glass-slider" id="slQpBright" min="5" max="100" value="100" style="--val: 95%" />
+        </div>
+
+        <div class="qp-slider-card">
+          <div class="qp-sl-top">
+            <button type="button" class="qp-mute-btn" id="btnQpMute" title="Tắt / Bật tiếng">🔊</button>
+            <span>Âm lượng</span>
+            <span class="qp-sl-dev" id="qpAudioDevName">Loa mặc định</span>
+            <b class="tabular" id="qpVolVal">50%</b>
+          </div>
+          <input type="range" class="glass-slider" id="slQpVol" min="0" max="100" value="50" style="--val: 50%" />
+          <div class="qp-audio-outputs" id="qpAudioOutputs" hidden></div>
+        </div>
+      </div>
+
+      <!-- Khối Wi-Fi & Bluetooth Picker mở rộng -->
+      <div class="qp-picker glass-surface anim-pop" id="qpNetPicker" hidden>
+        <div class="qp-picker-hdr">
+          <span id="qpPickerTitle">Mạng Wi-Fi</span>
+          <div class="qp-picker-tools">
+            <button type="button" class="ov-chip-btn" id="btnQpPickerScan">↻ Quét lại</button>
+            <button type="button" class="ov-chip-btn" id="btnQpPickerRadio">Bật/Tắt</button>
+          </div>
+        </div>
+        <div class="qp-picker-list" id="qpPickerList"></div>
+      </div>
+
+      <!-- Lưới 19 ô điều khiển -->
+      <div class="qp-tiles-grid" id="qpTilesGrid"></div>
+
+      <!-- Trình phát nhạc thu gọn -->
+      <div class="qp-media-card" id="qpMediaCard">
+        <div class="qp-media-art" id="qpMediaArt">🎵</div>
+        <div class="qp-media-meta">
+          <div class="qp-media-title" id="qpMediaTitle">Chưa có nhạc đang phát</div>
+          <div class="qp-media-artist" id="qpMediaArtist">Windows Media</div>
+        </div>
+        <div class="qp-media-ctrls">
+          <button type="button" class="ov-icon-btn" id="btnQpMediaPrev" title="Bài trước">⏮</button>
+          <button type="button" class="ov-icon-btn play" id="btnQpMediaPlay" title="Phát / Tạm dừng">▶</button>
+          <button type="button" class="ov-icon-btn" id="btnQpMediaNext" title="Bài tiếp">⏭</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUICK SEARCH (SPOTLIGHT) -->
+    <section class="ov-search glass-surface anim-pop" id="viewQuickSearch" hidden aria-label="Tìm kiếm nhanh">
+      <div class="qs-input-bar">
+        <span class="qs-search-ico">🔍</span>
+        <input type="text" id="qsInput" placeholder="Tìm ứng dụng, tệp, hành động, clipboard hoặc phép tính (= 2+2*8)..." autocomplete="off" />
+        <button type="button" class="ov-icon-btn" id="btnQsClear" hidden title="Xóa từ khóa">⌫</button>
+        <button type="button" class="qs-kbd" id="btnQsEsc" title="Đóng tìm kiếm (Esc)">ESC</button>
+        <button type="button" class="ov-icon-btn" id="btnQsClose" title="Đóng tìm kiếm (Esc)">✕</button>
+      </div>
+
+      <div class="qs-tabs" id="qsTabs">
+        <button type="button" class="qs-tab active" data-tab="apps">Ứng dụng <kbd>Ctrl+1</kbd></button>
+        <button type="button" class="qs-tab" data-tab="files">Tệp &amp; Gần đây <kbd>Ctrl+2</kbd></button>
+        <button type="button" class="qs-tab" data-tab="actions">Hành động &amp; Tính <kbd>Ctrl+3</kbd></button>
+        <button type="button" class="qs-tab" data-tab="clipboard">Clipboard <kbd>Ctrl+4</kbd></button>
+      </div>
+
+      <!-- Máy tính nhanh trực tiếp -->
+      <div class="qs-math-banner" id="qsMathBanner" hidden title="Nhấn Enter hoặc bấm để sao chép kết quả">
+        <span class="qs-math-expr" id="qsMathExpr"></span>
+        <span class="qs-math-res" id="qsMathRes">= 0</span>
+        <span class="qs-math-hint">Bấm để chép</span>
+      </div>
+
+      <!-- Lọc tệp (hiện ở tab Files) -->
+      <div class="qs-file-filters" id="qsFileFilters" hidden>
+        <button type="button" class="ov-chip-btn active" data-filter="all">Tất cả</button>
+        <button type="button" class="ov-chip-btn" data-filter="images">Hình ảnh</button>
+        <button type="button" class="ov-chip-btn" data-filter="docs">Tài liệu</button>
+        <button type="button" class="ov-chip-btn" data-filter="folders">Thư mục</button>
+      </div>
+
+      <div class="qs-results" id="qsResults"></div>
+
+      <!-- Hộp QR inline trong Clipboard tab -->
+      <div class="qs-qr-modal glass-surface anim-pop" id="qsQrModal" hidden>
+        <div class="qs-qr-svg" id="qsQrSvg"></div>
+        <div class="qs-qr-info">
+          <div class="qs-qr-text" id="qsQrText"></div>
+          <button type="button" class="ov-chip-btn" id="btnQsQrClose">Đóng QR</button>
+        </div>
+      </div>
+
+      <footer class="qs-foot">
+        <span>↑↓ Di chuyển · Enter Mở/Chép · Ctrl+1..4 Đổi tab</span>
+        <span id="qsCount">0 mục</span>
+      </footer>
+    </section>
+
+    <!-- 3. APP GRID (LAUNCHPAD FULLSCREEN) -->
+    <section class="ov-full anim-pop" id="viewAppGrid" hidden aria-label="Lưới ứng dụng">
+      <div class="ov-full-inner">
+        <header class="ag-hdr">
+          <h2>Ứng dụng đã cài đặt</h2>
+          <div class="ag-search-wrap glass-surface">
+            <span>🔍</span>
+            <input type="text" id="agSearch" placeholder="Tìm ứng dụng..." autocomplete="off" />
+          </div>
+          <button type="button" class="ov-icon-btn" id="btnAgClose" title="Đóng (Esc)">✕</button>
+        </header>
+        <div class="ag-cats" id="agCats"></div>
+        <div class="ag-grid" id="agGrid"></div>
+      </div>
+    </section>
+
+    <!-- 4. OVERVIEW (MISSION CONTROL + VIRTUAL DESKTOPS) -->
+    <section class="ov-full anim-pop" id="viewOverview" hidden aria-label="Tổng quan cửa sổ">
+      <div class="ov-full-inner">
+        <header class="ovw-hdr">
+          <div class="ovw-desk-bar" id="ovwDeskBar"></div>
+          <div class="ovw-desk-acts">
+            <button type="button" class="ov-chip-btn" id="btnOvwDeskPrev" title="Desktop trước">←</button>
+            <button type="button" class="ov-chip-btn" id="btnOvwDeskNext" title="Desktop sau">→</button>
+            <button type="button" class="ov-chip-btn" id="btnOvwDeskNew" title="Thêm Virtual Desktop">+ Mới</button>
+            <button type="button" class="ov-icon-btn" id="btnOvwClose" title="Đóng (Esc)">✕</button>
+          </div>
+        </header>
+        <div class="ovw-grid" id="ovwGrid"></div>
+      </div>
+    </section>
+  </div>
+  <div class="ov-toast" id="ovToast" hidden></div>
+  <script src="overlay.js"></script>
+</body>
+</html>

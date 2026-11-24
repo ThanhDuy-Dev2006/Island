@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgShiba" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#3c2614"/>
+      <stop offset="1" stop-color="#0f0905"/>
+    </radialGradient>
+    <linearGradient id="shibaFur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb84d"/>
+      <stop offset="0.6" stop-color="#e88320"/>
+      <stop offset="1" stop-color="#b8560d"/>
+    </linearGradient>
+    <linearGradient id="shibaEye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe599"/>
+      <stop offset="1" stop-color="#ff9900"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgShiba)"/>
+  <!-- Shiba Pointed Ears -->
+  <path d="M126 196 L94 74 L216 146 Z" fill="url(#shibaFur)" stroke="#ffd280" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M132 178 L112 102 L192 148 Z" fill="#fff3dc"/>
+  <path d="M386 196 L418 74 L296 146 Z" fill="url(#shibaFur)" stroke="#ffd280" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M380 178 L400 102 L320 148 Z" fill="#fff3dc"/>
+  <!-- Shiba Head -->
+  <rect x="98" y="142" width="316" height="264" rx="124" fill="url(#shibaFur)" stroke="#ffd280" stroke-width="5"/>
+  <!-- Cream Cheeks Pattern -->
+  <path d="M106 286 C120 228 190 242 256 266 C322 242 392 228 406 286 C406 364 342 404 256 404 C170 404 106 364 106 286 Z" fill="#fff5e4"/>
+  <!-- Cute White Eyebrow Dots (Shiba Mame) -->
+  <ellipse cx="198" cy="206" rx="18" ry="11" fill="#fff8eb" transform="rotate(-10 198 206)"/>
+  <ellipse cx="314" cy="206" rx="18" ry="11" fill="#fff8eb" transform="rotate(10 314 206)"/>
+  <!-- Eyes -->
+  <g filter="url(#glow)">
+    <circle cx="196" cy="266" r="24" fill="#231409"/>
+    <circle cx="316" cy="266" r="24" fill="#231409"/>
+    <circle cx="196" cy="266" r="18" fill="url(#shibaEye)"/>
+    <circle cx="316" cy="266" r="18" fill="url(#shibaEye)"/>
+  </g>
+  <circle cx="196" cy="266" r="10" fill="#1f1107"/>
+  <circle cx="316" cy="266" r="10" fill="#1f1107"/>
+  <circle cx="189" cy="257" r="6.5" fill="#ffffff"/>
+  <circle cx="309" cy="257" r="6.5" fill="#ffffff"/>
+  <!-- Blush -->
+  <ellipse cx="148" cy="298" rx="18" ry="10" fill="#ff7b89" opacity="0.65"/>
+  <ellipse cx="364" cy="298" rx="18" ry="10" fill="#ff7b89" opacity="0.65"/>
+  <!-- Nose & W-Mouth + Tongue -->
+  <ellipse cx="256" cy="296" rx="13" ry="9.5" fill="#261409"/>
+  <path d="M242 322 Q256 348 270 322 Z" fill="#ff6b8b"/>
+  <path d="M228 314 Q242 330 256 314 Q270 330 284 314" fill="none" stroke="#261409" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- Red Collar & Golden Bell -->
+  <rect x="164" y="392" width="184" height="22" rx="11" fill="#e62e3d"/>
+  <circle cx="256" cy="414" r="18" fill="#ffd646" stroke="#b87d00" stroke-width="4" filter="url(#glow)"/>
+  <circle cx="256" cy="418" r="4" fill="#593a00"/>
+</svg>

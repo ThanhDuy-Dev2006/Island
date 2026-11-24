@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cài đặt Island</title>
+  <link rel="icon" type="image/svg+xml" href="robot-avatar-dark.svg" />
+  <link rel="alternate icon" href="icon.png" />
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <div class="win" id="win">
+    <!-- THANH BÊN -->
+    <aside class="side" data-tauri-drag-region>
+      <div class="traffic" data-tauri-drag-region>
+        <button class="tl-close" id="btnWinClose" title="Đóng cửa sổ cài đặt (Esc)"></button>
+      </div>
+      <div class="side-brand" data-tauri-drag-region>
+        <img src="robot-avatar-dark.svg" class="side-avatar" alt="Island Avatar" />
+        <div class="side-brand-info" data-tauri-drag-region>
+          <span class="side-brand-title" data-tauri-drag-region>Island</span>
+          <span class="side-brand-ver" data-tauri-drag-region>v1.2.0 · Tiếng Việt</span>
+        </div>
+      </div>
+      <div class="nav-search-wrap">
+        <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+        <input type="text" id="navSearchInput" class="nav-search-input" placeholder="Tìm mọi cài đặt (Ctrl+F)..." autocomplete="off" />
+        <button type="button" id="navSearchClear" class="nav-search-clear" title="Xóa từ khóa tìm kiếm" aria-label="Xóa từ khóa">×</button>
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="nav-bottom" id="navBottom"></div>
+    </aside>
+
+    <!-- NỘI DUNG -->
+    <main class="content">
+      <header class="content-hdr" data-tauri-drag-region>
+        <div class="nav-hist-btns">
+          <button type="button" class="nav-hist-btn" id="btnNavBack" disabled title="Quay lại trang trước (Alt+←)">‹</button>
+          <button type="button" class="nav-hist-btn" id="btnNavFwd" disabled title="Đi tới trang sau (Alt+→)">›</button>
+        </div>
+        <div class="content-hdr-titles" data-tauri-drag-region>
+          <h1 id="pageTitle" data-tauri-drag-region>Hệ thống &amp; Trang</h1>
+          <span class="content-hdr-sub" id="pageSubTitle" data-tauri-drag-region>Khởi động, hiệu năng, bật/ẩn 10 trang Dynamic Island &amp; âm báo</span>
+        </div>
+      </header>
+      <div class="page-scroll" id="pageScroll">
+        <div class="page" id="page"></div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

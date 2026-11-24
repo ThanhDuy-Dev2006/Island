@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="darkbg" cx="0.5" cy="0.4" r="0.8">
+      <stop offset="0" stop-color="#2a194d"/>
+      <stop offset="1" stop-color="#070514"/>
+    </radialGradient>
+    <linearGradient id="catHead" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#362866"/>
+      <stop offset="0.55" stop-color="#1b1438"/>
+      <stop offset="1" stop-color="#0d0920"/>
+    </linearGradient>
+    <linearGradient id="earPink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff94c2"/>
+      <stop offset="1" stop-color="#ff4d8d"/>
+    </linearGradient>
+    <linearGradient id="catEye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7effc8"/>
+      <stop offset="1" stop-color="#18c998"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#darkbg)"/>
+  <!-- Left & Right Cat Ears -->
+  <path d="M118 230 L96 96 L218 158 Z" fill="url(#catHead)" stroke="#a37cff" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M128 205 L114 122 L194 164 Z" fill="url(#earPink)" opacity="0.85"/>
+  <path d="M394 230 L416 96 L294 158 Z" fill="url(#catHead)" stroke="#a37cff" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M384 205 L398 122 L318 164 Z" fill="url(#earPink)" opacity="0.85"/>
+  <!-- Head -->
+  <rect x="96" y="156" width="320" height="252" rx="116" fill="url(#catHead)" stroke="#a37cff" stroke-width="5"/>
+  <!-- Forehead Bell / Crescent Moon -->
+  <path d="M244 186 A16 16 0 1 0 272 202 A12 12 0 1 1 244 186 Z" fill="#ffd966" filter="url(#glow)"/>
+  <!-- Glowing Cat Eyes -->
+  <g filter="url(#glow)">
+    <ellipse cx="194" cy="272" rx="28" ry="32" fill="url(#catEye)"/>
+    <ellipse cx="318" cy="272" rx="28" ry="32" fill="url(#catEye)"/>
+  </g>
+  <ellipse cx="194" cy="272" rx="7" ry="20" fill="#071a14"/>
+  <ellipse cx="318" cy="272" rx="7" ry="20" fill="#071a14"/>
+  <circle cx="184" cy="258" r="7" fill="#ffffff"/>
+  <circle cx="308" cy="258" r="7" fill="#ffffff"/>
+  <!-- Pink Nose & W Mouth -->
+  <polygon points="248,306 264,306 256,317" fill="#ff7eb6"/>
+  <path d="M232 324 Q244 338 256 324 Q268 338 280 324" fill="none" stroke="#ff94c2" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- Whiskers -->
+  <g stroke="#b89cff" stroke-width="4" stroke-linecap="round" opacity="0.8">
+    <line x1="78" y1="286" x2="128" y2="294"/>
+    <line x1="74" y1="312" x2="126" y2="312"/>
+    <line x1="434" y1="286" x2="384" y2="294"/>
+    <line x1="438" y1="312" x2="386" y2="312"/>
+  </g>
+</svg>

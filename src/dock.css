@@ -1,0 +1,299 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  font-family: var(--font-ui);
+  color: var(--fg);
+  user-select: none;
+}
+
+.dock-stage {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dock-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--dock-gap, 7px);
+  padding: 7px 11px;
+  border-radius: 20px;
+  max-width: calc(100vw - 24px);
+  transition: transform 0.28s var(--spring-phy), opacity 0.2s ease;
+}
+.dock-bar.auto-hidden {
+  transform: translateX(-50%) translateY(calc(100% + 22px));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dock-group {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--dock-gap, 7px);
+}
+.dock-group:empty {
+  display: none;
+}
+
+.dock-sep {
+  width: 1px;
+  height: calc(var(--dock-icon, 48px) * 0.68);
+  align-self: center;
+  background: var(--glass-border);
+  margin: 0 2px;
+}
+
+.dock-item {
+  position: relative;
+  width: var(--dock-icon, 48px);
+  height: var(--dock-icon, 48px);
+  border: 0;
+  padding: 0;
+  border-radius: 13px;
+  background: var(--card-bg);
+  color: var(--fg);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: bottom center;
+  transform: scale(var(--mag, 1)) translateY(calc((var(--mag, 1) - 1) * -18px));
+  transition: transform 0.14s var(--spring-phy), background 0.14s ease, box-shadow 0.14s ease;
+}
+.dock-item:hover {
+  background: var(--card-bg-hover);
+}
+.dock-item.dragging {
+  opacity: 0.45;
+}
+.dock-item.running::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+.dock-item[data-tip]:hover::before {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: rgba(12, 16, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.dock-ico-box {
+  width: 78%;
+  height: 78%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--dock-icon, 48px) * 0.46);
+  overflow: hidden;
+  border-radius: 10px;
+}
+.dock-ico-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.grid-ico {
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 45%, #a855f7));
+  color: #fff;
+  border-radius: 11px;
+}
+
+.dock-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popover Preview */
+.dock-popover {
+  position: fixed;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 248px;
+  padding: 9px;
+  border-radius: 14px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.dp-hdr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dp-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.dp-acts {
+  display: flex;
+  gap: 4px;
+}
+.dp-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  color: var(--fg);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+.dp-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.85);
+  color: #fff;
+}
+.dp-thumb {
+  height: 128px;
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 11px;
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+.dp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Downloads Stack */
+.dock-downloads {
+  position: fixed;
+  bottom: 82px;
+  right: 20px;
+  width: 274px;
+  max-height: 310px;
+  padding: 10px;
+  border-radius: 15px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ddl-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+}
+.ddl-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+.ddl-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 9px;
+  background: var(--card-bg);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.ddl-row:hover {
+  background: var(--card-bg-hover);
+}
+.ddl-row-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Context Menu */
+.dock-ctx {
+  position: fixed;
+  min-width: 175px;
+  padding: 6px;
+  border-radius: 13px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+}
+.ctx-btn {
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  font-size: 12px;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ctx-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.ctx-btn.danger {
+  color: #f87171;
+}
+.ctx-btn.danger:hover {
+  background: #ef4444;
+  color: #fff;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme-mode="dark" data-accent="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Desktop Widgets &amp; Scene</title>
+  <link rel="stylesheet" href="theme-tokens.css" />
+  <link rel="stylesheet" href="widgets.css" />
+</head>
+<body>
+  <!-- DESKTOP WIDGETS CANVAS (?view=widgets) -->
+  <div class="dw-stage" id="widgetsStage" hidden>
+    <div id="widgetsCanvas"></div>
+
+    <!-- Menu chuột phải widget -->
+    <div class="dw-ctx glass-surface anim-pop" id="widgetCtxMenu" hidden></div>
+
+    <!-- Ngăn kéo Thư viện Widget -->
+    <aside class="dw-gallery glass-surface anim-pop" id="widgetGallery" hidden aria-label="Thư viện Desktop Widgets">
+      <div class="dwg-hdr">
+        <span>🧱 Thư viện Widgets</span>
+        <button type="button" class="dw-close-btn" id="btnCloseGallery" title="Đóng">✕</button>
+      </div>
+      <div class="dwg-sub">Bấm vào widget bất kỳ để ghim lên Desktop (Kéo để di chuyển theo lưới 16px)</div>
+      <div class="dwg-list" id="widgetGalleryList"></div>
+    </aside>
+  </div>
+
+  <!-- SCENE WORKSPACE STRIP (?view=scene) -->
+  <aside class="scene-strip glass-surface" id="sceneStage" hidden aria-label="Scene Workspace">
+    <div class="sc-acts">
+      <button type="button" class="sc-btn" id="btnSceneTuck" title="Cất hết cửa sổ vào cạnh trái">◧ Cất hết</button>
+      <button type="button" class="sc-btn" id="btnSceneRestore" title="Khôi phục tất cả cửa sổ">↺ Hiện lại</button>
+    </div>
+    <div class="sc-cards" id="sceneCards"></div>
+  </aside>
+
+  <script src="widgets.js"></script>
+</body>
+</html>
